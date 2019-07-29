@@ -120,7 +120,19 @@ const restaurants = [
         id: "53b642d7-5e86-4717-a466-0640a1dee076",
         user: "Agata",
         text: "Best bakery",
-        rating: 5
+        rating: 1
+      },
+      {
+        id: "53b642d7-5e86-4717-a466-0640a1dee071",
+        user: "Agata",
+        text: "Best bakery",
+        rating: 1
+      },
+      {
+        id: "53b642d7-5e86-4717-a466-0640a1dee072",
+        user: "Agata",
+        text: "Best bakery",
+        rating: 3
       }
     ]
   },
