@@ -13,9 +13,10 @@ export const addDish = id => ({
   }
 });
 
-export const removeDish = id => ({
+export const removeDish = (id, need_delete = false) => ({
   type: "REMOVE_DISH",
   payload: {
-    id
+    id,
+    need_delete
   }
 });

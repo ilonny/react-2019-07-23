@@ -8,12 +8,13 @@ export default (cartState = {}, action) => {
       };
     }
     case "REMOVE_DISH": {
-      const { id } = action.payload;
+      const { id, need_delete } = action.payload;
       if (!cartState[id]) {
+        console.log("lol?");
         return cartState;
       }
       const newCartState = { ...cartState };
-      if (newCartState[id] === 1) {
+      if (newCartState[id] === 1 || need_delete) {
         delete newCartState[id];
       } else {
         newCartState[id] = newCartState[id] - 1;
