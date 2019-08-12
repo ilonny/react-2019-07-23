@@ -1,7 +1,7 @@
-import React, { Component } from "react";
-import { List } from "antd";
-import Restaurant from "../restaurant";
-import { accordion } from "../../decorators/accordion";
+import React, {Component} from 'react'
+import {List} from 'antd'
+import Restaurant from '../restaurant'
+import {accordion} from '../../decorators/accordion'
 
 class RestaurantList extends Component {
   render() {
@@ -10,11 +10,11 @@ class RestaurantList extends Component {
 
       // from decorator
       openItemId,
-      toggleOpen
-    } = this.props;
+      toggleOpen,
+    } = this.props
     return (
       <List
-        itemLayout={"horizontal"}
+        itemLayout={'horizontal'}
         dataSource={restaurants}
         renderItem={restaurant => (
           <Restaurant
@@ -25,8 +25,8 @@ class RestaurantList extends Component {
           />
         )}
       />
-    );
+    )
   }
 }
 
-export default accordion(RestaurantList);
+export default accordion(RestaurantList)

@@ -1,18 +1,18 @@
-import React, { Component } from "react";
-import { Layout } from "antd";
-import "./app.css";
-import Header from "../header";
-import RestaurantList from "../restaurant-list";
-import Order from "../order";
-import Counter from "../counter";
+import React, {Component} from 'react'
+import {Layout} from 'antd'
+import './app.css'
+import Header from '../header'
+import RestaurantList from '../restaurant-list'
+import OrderForm from '../order-form'
+import Counter from '../counter'
 // import RestaurantsMap from '../restaurants-map'
-import OrderList from "../order-list";
-import { connect } from "react-redux";
+import {connect} from 'react-redux'
+import OrderList from '../order-list'
 
 class App extends Component {
   componentDidMount() {
     if (this.props.fetchData) {
-      this.props.fetchData();
+      this.props.fetchData()
     }
   }
 
@@ -23,15 +23,15 @@ class App extends Component {
         <main role="main">
           <RestaurantList restaurants={this.props.restaurants} />
           {/*<RestaurantsMap restaurants={this.props.restaurants} />*/}
-          <Order />
           <OrderList />
+          <OrderForm />
         </main>
         <Counter />
       </Layout>
-    );
+    )
   }
 }
 
 export default connect(state => ({
-  restaurants: state.restaurants
-}))(App);
+  restaurants: state.restaurants,
+}))(App)

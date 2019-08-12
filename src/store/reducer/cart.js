@@ -1,27 +1,37 @@
+import {ADD_TO_CART, DELETE_FROM_CART, SUBTRACT_FROM_CART} from '../constants'
+
 export default (cartState = {}, action) => {
   switch (action.type) {
-    case "ADD_DISH": {
-      const { id } = action.payload;
+    case ADD_TO_CART: {
+      const {id} = action.payload
       return {
         ...cartState,
-        [id]: cartState[id] ? cartState[id] + 1 : 1
-      };
+        [id]: cartState[id] ? cartState[id] + 1 : 1,
+      }
     }
-    case "REMOVE_DISH": {
-      const { id, need_delete } = action.payload;
+    case SUBTRACT_FROM_CART: {
+      const {id} = action.payload
       if (!cartState[id]) {
-        console.log("lol?");
-        return cartState;
+        return cartState
       }
-      const newCartState = { ...cartState };
-      if (newCartState[id] === 1 || need_delete) {
-        delete newCartState[id];
+      const newCartState = {...cartState}
+      if (newCartState[id] === 1) {
+        delete newCartState[id]
       } else {
-        newCartState[id] = newCartState[id] - 1;
+        newCartState[id] = newCartState[id] - 1
       }
-      return newCartState;
+      return newCartState
+    }
+    case DELETE_FROM_CART: {
+      const {id} = action.payload
+      if (!cartState[id]) {
+        return cartState
+      }
+      const newCartState = {...cartState}
+      delete newCartState[id]
+      return newCartState
     }
     default:
-      return cartState;
+      return cartState
   }
-};
+}
